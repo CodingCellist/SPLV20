@@ -1,3 +1,5 @@
+-- Idris 2
+
 module RLE
 
 import Decidable.Equality

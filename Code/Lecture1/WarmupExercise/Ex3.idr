@@ -1,3 +1,4 @@
+-- Idris 2
 
 -- 1. Prove that appending Nil is the identity
 -- (Note: this is defined in Data.List, but have a go yourself!)

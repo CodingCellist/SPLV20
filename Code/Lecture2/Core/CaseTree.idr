@@ -1,3 +1,5 @@
+-- Idris 2
+
 module Core.CaseTree
 
 import Core.TT

@@ -1,3 +1,5 @@
+-- Idris 2
+
 import Core.Core
 
 coreProg : Core ()

@@ -1,3 +1,5 @@
+-- Idris 2
+
 import Decidable.Equality
 
 -- This is the (simplified) definition of names in Core.TT

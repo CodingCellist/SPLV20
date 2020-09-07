@@ -1,3 +1,4 @@
+-- Idris 2
 
 dup : (1 x : ty) -> (ty, ty)
 

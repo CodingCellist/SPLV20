@@ -1,3 +1,5 @@
+-- Idris 2
+
 import Core.Core
 
 data Counter : Type where

@@ -1,3 +1,5 @@
+-- Idris 2
+
 module Core.Core
 
 import public Data.IORef

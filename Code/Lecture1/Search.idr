@@ -1,3 +1,5 @@
+-- Idris 2
+
 uncurry : (a -> b -> c) -> (a, b) -> c
 
 curry : ((a, b) -> c) -> a -> b -> c

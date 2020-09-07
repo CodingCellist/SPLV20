@@ -1,3 +1,4 @@
+-- Idris 2
 
 data Name : Type where
      UN : String -> Name -- user written name

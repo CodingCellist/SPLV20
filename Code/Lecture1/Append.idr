@@ -1,3 +1,5 @@
+-- Idris 2
+
 appendNeutral : (xs : List a) -> xs = xs ++ []
 appendNeutral [] = Refl
 appendNeutral (x :: xs) = cong (x ::) (appendNeutral xs)
