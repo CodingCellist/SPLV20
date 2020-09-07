@@ -30,3 +30,7 @@ data Singleton : a -> Type where
      Val : (x : a) -> Singleton x
 
 uncompress : RunLength {ty} xs -> Singleton xs
+uncompress Empty = Val []
+uncompress (Run n x y)
+    = let Val ys = uncompress y in
+          Val (rep n x ++ ys)
