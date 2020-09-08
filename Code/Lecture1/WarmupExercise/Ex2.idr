@@ -18,10 +18,13 @@ data Var : List Name -> Type where
 
 -- 1. Remove all references to the most recently bound variable
 dropFirst : List (Var (v :: vs)) -> List (Var vs)
+dropFirst [] = []
+dropFirst ((MkVar First) :: []) = ?dropFirst_rhs_4
+dropFirst ((MkVar First) :: xs) = ?dropFirst_rhs_5
+dropFirst ((MkVar (Later x)) :: xs) = ?dropFirst_rhs_3
 
 -- 2. Add a reference to a variable in the middle of a scope - we'll need 
 -- something like this later.
 -- Note: The type here isn't quite right, you'll need to modify it slightly.
-insertName : Var (outer ++ inner) -> Var (outer ++ n :: inner)
-
+insertName : {outer : List Name} -> {inner : List Name} -> Var (outer ++ inner) -> Var (outer ++ n :: inner)
 

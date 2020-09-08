@@ -3,6 +3,8 @@
 -- 1. Prove that appending Nil is the identity
 -- (Note: this is defined in Data.List, but have a go yourself!)
 appendNilNeutral : (xs : List a) -> xs ++ [] = xs
+appendNilNeutral [] = Refl
+appendNilNeutral (x :: xs) = ?hole
 
 -- 2. Prove that appending lists is associative.
 -- (Note: also defined in Data.List)
