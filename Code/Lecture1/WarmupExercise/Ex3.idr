@@ -4,12 +4,14 @@
 -- (Note: this is defined in Data.List, but have a go yourself!)
 appendNilNeutral : (xs : List a) -> xs ++ [] = xs
 appendNilNeutral [] = Refl
-appendNilNeutral (x :: xs) = ?hole
+appendNilNeutral (x :: xs) = cong (x ::) (appendNilNeutral xs)
 
 -- 2. Prove that appending lists is associative.
 -- (Note: also defined in Data.List)
 appendAssoc : (xs : List a) -> (ys : List a) -> (zs : List a) ->
               xs ++ (ys ++ zs) = (xs ++ ys) ++ zs
+appendAssoc [] ys zs = Refl
+appendAssoc (x :: xs) ys zs = cong (x ::) (appendAssoc xs ys zs)
 
 -- A tree indexed by the (inorder) flattening of its contents
 data Tree : List a -> Type where
