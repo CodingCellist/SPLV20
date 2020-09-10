@@ -27,3 +27,6 @@ rotateL (Node left n (Node rightl n' rightr))
 
 -- 4. Complete the definition of rotateR
 rotateR : Tree xs -> Tree xs
+rotateR Leaf = Leaf
+rotateR (Node left n Leaf) = Node (rotateR left) n (rotateR Leaf)
+rotateR (Node left n (Node rightl n' rightr)) = ?rotateR_rhs_4
