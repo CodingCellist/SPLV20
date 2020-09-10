@@ -23,7 +23,7 @@ rotateL : Tree xs -> Tree xs
 rotateL Leaf = Leaf
 rotateL (Node left n Leaf) = Node left n Leaf
 rotateL (Node left n (Node rightl n' rightr))
-    =  ?rotateLemma $ Node (Node left n rightl) n' rightr
+    =  \x => Node (rotateL left) n (rotateL (Node rightl n' rightr)) $ Node (Node left n rightl) n' rightr    -- correct?...
 
 -- 4. Complete the definition of rotateR
 rotateR : Tree xs -> Tree xs
