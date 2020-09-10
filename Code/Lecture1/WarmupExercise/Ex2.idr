@@ -19,12 +19,26 @@ data Var : List Name -> Type where
 -- 1. Remove all references to the most recently bound variable
 dropFirst : List (Var (v :: vs)) -> List (Var vs)
 dropFirst [] = []
-dropFirst ((MkVar First) :: []) = ?dropFirst_rhs_4
-dropFirst ((MkVar First) :: xs) = ?dropFirst_rhs_5
-dropFirst ((MkVar (Later x)) :: xs) = ?dropFirst_rhs_3
+dropFirst (x :: xs) = ?idkMan
+
+--dropFirst (x :: xs) = case x of
+--                           (MkVar First) => ?dropfirst_rhs1_2
+--                           (MkVar (Later y)) => ?dropfirst_rhs1_3
+--dropFirst ((MkVar First) :: xs) = ?dropFirst_rhs_4
+--dropFirst ((MkVar (Later x)) :: xs) = ?dropFirst_rhs_5
+
 
 -- 2. Add a reference to a variable in the middle of a scope - we'll need 
 -- something like this later.
 -- Note: The type here isn't quite right, you'll need to modify it slightly.
-insertName : {outer : List Name} -> {inner : List Name} -> Var (outer ++ inner) -> Var (outer ++ n :: inner)
+insertName : {outer, inner : List Name} -> Var (outer ++ inner) -> Var (outer ++ n :: inner)
+insertName {outer = []} {inner = []} (MkVar p) = MkVar First  -- not convinced this is right...
+insertName {outer = []} {inner = is} (MkVar p) = ?insertName_rhs_2
+insertName {outer = os} {inner = []} (MkVar p) = ?insertName_rhs_3
+insertName {outer = os} {inner = is} (MkVar p) = ?insertName_rhs_4
+
+-- what I want to do:
+--insertName {outer = []} {inner = is} (MkVar p) = (MkVar First) :: is
+--insertName {outer = os} {inner = []} (MkVar p) = os :: (MkVar First)
+--insertName {outer = os} {inner = is} (MkVar p) = ?vodoo
 
