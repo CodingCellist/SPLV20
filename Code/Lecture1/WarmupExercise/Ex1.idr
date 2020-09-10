@@ -42,4 +42,4 @@ DecEq Name where
     decEq (MN y i) (MN y j) | (Yes Refl) with (decEq i j)
       decEq (MN y i) (MN y i) | (Yes Refl) | (Yes Refl) = Yes Refl
       decEq (MN y i) (MN y j) | (Yes Refl) | (No ijContra) = No ?hole2
-  decEq _ _ = No ?decEq_rhs_7
+  decEq _ _ = No ?contra
