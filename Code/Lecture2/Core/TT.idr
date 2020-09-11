@@ -106,14 +106,30 @@ data Term : List Name -> Type where
 
 -- Term manipulation
 
+-- Need these, but don't know what they are
+--Foldable Binder where
+--  foldr f b = ?foldrHole
+--
+--Traversable Binder where
+--  traverse x = ?hole
+
+--- add a new variable
 export
 weaken : Term vars -> Term (x :: vars)
 
 export
 embed : Term vars -> Term (vars ++ more)
 
+--- drop an unused variable
 export
 contract : Term (x :: vars) -> Maybe (Term vars)
+contract (Local idx p) = ?contract_local
+contract (Ref nt z) = ?contract_ref
+contract (Meta n ns) = ?contract_meta
+contract (Bind n b scope) = ?contract_bind
+contract (App y z) = ?contract_app
+contract TType = ?contract_ttype
+contract Erased = ?contract_erased
 
 export
 subst : Term vars -> Term (x :: vars) -> Term vars
