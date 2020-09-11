@@ -19,7 +19,10 @@ data Var : List Name -> Type where
 -- 1. Remove all references to the most recently bound variable
 dropFirst : List (Var (v :: vs)) -> List (Var vs)
 dropFirst [] = []
-dropFirst (x :: xs) = ?idkMan
+dropFirst (x :: xs)
+    = do x' <- ?something
+         xs' <- dropFirst xs
+         ?idkMan
 
 --dropFirst (x :: xs) = case x of
 --                           (MkVar First) => ?dropfirst_rhs1_2
